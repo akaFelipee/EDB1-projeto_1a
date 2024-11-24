@@ -48,3 +48,27 @@ As regras para remoção são:
   ID: 001 | Tipo: Container | Peso: 15.3 | Prioridade: Normal
   ID: 002 | Tipo: Granel sólido | Peso: 30.0 | Prioridade: Alta
   ID: 003 | Tipo: Granel líquido | Peso: 50.0 | Prioridade: Normal
+
+**Remoção:** A carga com ID 002 é processada.
+
+**Fila resultante:**
+ ```plaintext
+  ID: 001 | Tipo: Container | Peso: 15.3 | Prioridade: Normal
+  ID: 003 | Tipo: Granel líquido | Peso: 50.0 | Prioridade: Normal
+
+### 3. Busca de Carga
+- Permite ao usuário buscar uma carga pelo ID.
+- Exibe todos os atributos da carga encontrada.
+
+### 4. Exibição de Cargas
+- Lista todas as cargas da fila em ordem de chegada.
+
+## **🚀 Funcionamento Geral**
+
+1. O sistema carrega os dados iniciais a partir de um arquivo .csv.
+2 O usuário interage com o sistema por meio de um menu para:
+- Visualizar as cargas na fila.
+- Adicionar novas cargas.
+- Processar a próxima carga.
+3. Após o processamento, a carga removida é exibida, e a fila é reorganizada.
+4. O sistema exibe mensagens claras para cada operação.
