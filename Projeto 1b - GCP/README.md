@@ -41,19 +41,6 @@ As regras para remoção são:
 1. Localizar a primeira carga na fila com prioridade **Alta**.
 2. Se houver múltiplas cargas com prioridade Alta, remover a mais antiga (ordem de chegada).
 3. Caso não existam cargas de prioridade Alta, remover a carga no início da fila.
-   
-**Exemplo**:
-- **Fila inicial**:
-  
-  ID: 001 | Tipo: Container | Peso: 15.3 | Prioridade: Normal
-  ID: 002 | Tipo: Granel sólido | Peso: 30.0 | Prioridade: Alta
-  ID: 003 | Tipo: Granel líquido | Peso: 50.0 | Prioridade: Normal
-
-**Remoção:** A carga com ID 002 é processada.
-
-- **Fila resultante:**
-  ID: 001 | Tipo: Container | Peso: 15.3 | Prioridade: Normal
-  ID: 003 | Tipo: Granel líquido | Peso: 50.0 | Prioridade: Normal
 
 ### 3. Busca de Carga
 - Permite ao usuário buscar uma carga pelo ID.
