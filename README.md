@@ -1,2 +1,10 @@
-# EDB1-projeto_1a
-EDB1 2024.2 projeto_1a
+# Disciplina: Estrutura de Dados Básicas I
+
+## Sistema de Gerenciamento de Estoque
+## Projeto 1b: Gestão de Cargas
+
+---
+
+## Integrantes do projeto:
+- JULIANA VIEIRA BARBOSA DOS SANTOS
+- FELIPE MARADEI OLIVEIRA
