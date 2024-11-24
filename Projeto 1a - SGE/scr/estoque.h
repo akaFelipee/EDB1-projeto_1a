@@ -22,6 +22,6 @@ void inserirProdutoMenu(Estoque *estoque);
 void removerProdutoMenu(Estoque *estoque); // em processo
 // declarar funçao pra busca de produto
 // declarar funçao pra att de produto
-// declarar funçao pra listar de produto
+// declarar funçao pra listar produto
 
 #endif
