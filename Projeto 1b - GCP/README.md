@@ -44,7 +44,7 @@ As regras para remoção são:
    
 **Exemplo**:
 - **Fila inicial**:
-  ```plaintext
+  
   ID: 001 | Tipo: Container | Peso: 15.3 | Prioridade: Normal
   ID: 002 | Tipo: Granel sólido | Peso: 30.0 | Prioridade: Alta
   ID: 003 | Tipo: Granel líquido | Peso: 50.0 | Prioridade: Normal
@@ -52,8 +52,8 @@ As regras para remoção são:
 **Remoção:** A carga com ID 002 é processada.
 
 - **Fila resultante:**
-ID: 001 | Tipo: Container | Peso: 15.3 | Prioridade: Normal
-ID: 003 | Tipo: Granel líquido | Peso: 50.0 | Prioridade: Normal
+  ID: 001 | Tipo: Container | Peso: 15.3 | Prioridade: Normal
+  ID: 003 | Tipo: Granel líquido | Peso: 50.0 | Prioridade: Normal
 
 ### 3. Busca de Carga
 - Permite ao usuário buscar uma carga pelo ID.
