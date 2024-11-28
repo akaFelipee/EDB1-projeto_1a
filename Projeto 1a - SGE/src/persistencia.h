@@ -3,7 +3,7 @@
 
 #include "estoque.h"
 
-void carregarEstoque(Estoque *estoque, const char *nomeArquivo);
-void salvarEstoque(Estoque *estoque, const char *nomeArquivo);
+void carregarEstoque(Estoque *estoque, const char *caminhoArquivo);
+void salvarEstoque(Estoque *estoque, const char *caminhoArquivo);
 
 #endif
