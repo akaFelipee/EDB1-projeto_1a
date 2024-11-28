@@ -8,7 +8,7 @@
 void inicializarEstoque(Estoque *estoque, int capacidadeInicial) {
     estoque->produtos = malloc(capacidadeInicial * sizeof(Produto));
     if (estoque->produtos == NULL) {
-        printf("Erro ao alocar memória.\n");
+        printf("Erro ao alocar memoria.\n");
         exit(1);
     }
     estoque->capacidade = capacidadeInicial;
@@ -45,7 +45,7 @@ int buscarProduto(Estoque *estoque, int codigo) {
 void removerProduto(Estoque *estoque, int codigo) {
     int indice = buscarProduto(estoque, codigo);
     if (indice == -1) {
-        printf("Produto não encontrado.\n");
+        printf("Produto nao encontrado.\n");
         return;
     }
     for (int i = indice; i < estoque->tamanho - 1; i++) {
@@ -57,7 +57,7 @@ void removerProduto(Estoque *estoque, int codigo) {
 void atualizarProduto(Estoque *estoque, int codigo, int novaQuantidade, float novoPreco) {
     int indice = buscarProduto(estoque, codigo);
     if (indice == -1) {
-        printf("Produto não encontrado.\n");
+        printf("Produto nao encontrado.\n");
         return;
     }
     estoque->produtos[indice].quantidade = novaQuantidade;
@@ -71,7 +71,7 @@ void listarProdutos(Estoque *estoque) {
     }
     for (int i = 0; i < estoque->tamanho; i++) {
         Produto p = estoque->produtos[i];
-        printf("Código: %d | Nome: %s | Quantidade: %d | Preço: %.2f\n", p.codigo, p.nome, p.quantidade, p.preco);
+        printf("Codigo: %d | Nome: %s | Quantidade: %d | Preco: %.2f\n", p.codigo, p.nome, p.quantidade, p.preco);
     }
 }
 void liberarEstoque(Estoque *estoque) {
