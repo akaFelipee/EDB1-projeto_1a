@@ -1,13 +1,13 @@
 #include <stdio.h>
-#include "estoque.h" // p/ manipulação do vetor de produtos
-// #include "persistencia.h" // p/  manipulação de arquivos
+#include "estoque.h"
+#include "persistencia.h"
 
 int main() {
     Estoque estoque;
     Produto p;
     inicializarEstoque(&estoque, 10);
 
-    //carregarDeArquivo(&estoque, "estoque.txt");
+    carregarEstoque(&estoque, "./data/estoque.csv");
 
     int opcao;
     do {
@@ -16,7 +16,7 @@ int main() {
         printf("3. Buscar produto\n");
         printf("4. Atualizar produto\n");
         printf("5. Listar produtos\n");
-        printf("6. Gravar estoque em arquivo\n");
+        printf("6. Salvar alteracoes\n");
         printf("7. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
@@ -27,7 +27,7 @@ int main() {
                 printf("Digite o codigo do produto: ");
                 scanf("%d", &p.codigo);
                 printf("Digite o nome do produto: ");
-                scanf("%49s", p.nome); // Garante que não ultrapasse o limite de 49 caracteres + null-terminator
+                scanf("%49s", p.nome);  // Garante que não ultrapasse o limite de 49 caracteres + null-terminator
                 printf("Digite a quantidade: ");
                 scanf("%d", &p.quantidade);
                 printf("Digite o preco: ");
@@ -61,12 +61,12 @@ int main() {
                 printf("Digite o codigo do produto a ser atualizado: ");
                 scanf("%d", &codigo);
                 printf("Digite a quantidade (nao negativa): ");
-                scanf("%d", &p.quantidade);
-                    if (p.quantidade < 0) {
-                        printf("Quantidade invalida.\n");
-                        break;
-                    }
-                printf("Digite o novo preço: ");
+                scanf("%d", &quantidade);
+                if (quantidade < 0) {
+                    printf("Quantidade invalida.\n");
+                    break;
+                }
+                printf("Digite o novo preco: ");
                 scanf("%f", &preco);
                 atualizarProduto(&estoque, codigo, quantidade, preco);
                 break;
@@ -75,13 +75,13 @@ int main() {
                 listarProdutos(&estoque);
                 break;
             case 6:
-                // gravar em arquivo
+                salvarEstoque(&estoque, "./data/estoque.csv");
                 break;
             case 7:
                 printf("Saindo...\n");
                 break;
             default:
-                printf("Opcaoo invalida. Tente novamente.\n");
+                printf("Opcao invalida. Tente novamente.\n");
         }
     } while (opcao != 7);
 
