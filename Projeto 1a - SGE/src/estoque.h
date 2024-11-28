@@ -5,23 +5,24 @@
 
 typedef struct {
     int codigo;
-    char nome[100];
+    char nome[50];
     int quantidade;
     float preco;
 } Produto;
 
 typedef struct {
     Produto *produtos;
-    int capacidade;
     int tamanho;
+    int capacidade;
 } Estoque;
 
 void inicializarEstoque(Estoque *estoque, int capacidadeInicial);
+void redimensionarEstoque(Estoque *estoque);
+void inserirProduto(Estoque *estoque, Produto novoProduto);
+int buscarProduto(Estoque *estoque, int codigo);
+void removerProduto(Estoque *estoque, int codigo);
+void atualizarProduto(Estoque *estoque, int codigo, int novaQuantidade, float novoPreco);
+void listarProdutos(Estoque *estoque);
 void liberarEstoque(Estoque *estoque);
-void inserirProdutoMenu(Estoque *estoque); 
-void removerProdutoMenu(Estoque *estoque); // em processo
-// declarar funçao pra busca de produto
-// declarar funçao pra att de produto
-// declarar funçao pra listar produto
 
 #endif
