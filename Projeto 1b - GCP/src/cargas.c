@@ -55,9 +55,31 @@ Carga* remocao() {
     return atual;
 }
 
+void exibir() {
+    Carga *atual = inicio;
+    if (atual == NULL) {
+        printf("A fila de cargas está vazia.\n");
+        return;
+    }
+    
+    printf("\n--- Cargas na fila ---\n");
+    while (atual) {
+        printf("ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descrição: %s\n",
+               atual->id, atual->tipo, atual->peso, atual->prioridade, atual->descricao);
+        atual = atual->prox;
+    }
+}
 
-// funcao buscar
-// funcao exibir
+Carga* buscar(const char *id) {
+    Carga *atual = inicio;
+    while (atual) {
+        if (strcmp(atual->id, id) == 0) {
+            return atual;
+        }
+        atual = atual->prox;
+    }
+    return NULL;
+}
 
 void liberarFila() {
     Carga *atual = inicio;
