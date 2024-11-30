@@ -1,24 +1,23 @@
-//Declarações das funções e estruturas relacionadas às cargas
-
 #ifndef CARGAS_H
 #define CARGAS_H
-#include <stdbool.h> // para var. booleanas
+
+#include <stdbool.h>
 
 typedef struct Carga {
-    char id[4];
-    char tipo[50];
-    float peso;
-    char prioridade[10];
-    char descricao[100];
-    struct Carga prox;
+char id[10];
+char tipo[50];
+float peso;
+char prioridade[10];
+char desc[100];
+struct Carga *prox;
 } Carga;
 
-void inicializarFila(); // FEITO
-bool insercao(Carga carga); // FEITO
-Carga remocao(); // FEITO
-Carga* busca(const char id); 
-void exibe();
-bool lerCSV(const chararquivo);
-void liberarFila(); // FEITO
+void iniciarFila();
+bool insercao(Carga carga);
+Carga* remocao();
+Carga* buscaCarga(const char *id);
+void mostrarCargas();
+bool lerCSV(const char *arquivo);
+void liberarFila();
 
 #endif

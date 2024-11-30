@@ -29,7 +29,7 @@ bool insercao(Carga carga) {
     return true;
 }
 
-Carga* removeCarga() {
+Carga* remocao() {
     if (!inicio) return NULL;
 
     Carga *atual = inicio;
