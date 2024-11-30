@@ -5,7 +5,7 @@
 void menu();
 
 int main() {
-    inicializarFila();
+    iniciarFila();
     /*if (!carregarCargas("../data/cargas.csv")) {
         printf("Erro ao carregar arquivo CSV.\n");
     } */
