@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "cargas.h"
 #include "persistencia.h"
 
@@ -66,7 +68,7 @@ int main() {
             break;
         }
         default:
-            printf("Opção não encontrada!");
+            printf("Opcao nao encontrada!");
             break;
         }
             

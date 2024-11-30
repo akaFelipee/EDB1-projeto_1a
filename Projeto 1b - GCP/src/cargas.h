@@ -17,7 +17,7 @@ bool insercao(Carga carga); // feito
 Carga* remocao(); // feito
 Carga* buscar(const char *id);
 void exibir();
-bool carregarCargas(const char *arquivo);
+// bool carregarCargas(const char *arquivo);
 void liberarFila();
 
 #endif

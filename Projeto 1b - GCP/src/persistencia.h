@@ -3,7 +3,6 @@
 
 #include "cargas.h"
 
-void carregarCargas(Estoque *estoque, const char *caminhoArquivo);
-void salvarCargas(Estoque *estoque, const char *caminhoArquivo);
+void carregarCargas(const char *caminhoArquivo);
 
 #endif

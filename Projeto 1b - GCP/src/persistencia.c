@@ -12,7 +12,7 @@ void carregarCargas(const char *caminhoArquivo) {
     }
 
     Carga carga;
-    while (fscanf(arquivo, "%9[^,],%49[^,],%f,%9[^,],%99[^\n]\n", carga.id, carga.tipo, &carga.peso, carga.prioridade, carga.descricao) == 5) {
+while (fscanf(arquivo, "%9[^,],%49[^,],%f,%9[^,],%99[^\n]\n", carga.id, carga.tipo, &carga.peso, carga.prioridade, carga.descricao) == 5) {
         if (!insercao(carga)) {
             printf("Nao foi possível inserir carga com ID %s na fila.\n", carga.id);
         }

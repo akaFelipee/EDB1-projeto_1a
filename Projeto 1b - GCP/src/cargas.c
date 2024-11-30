@@ -58,13 +58,13 @@ Carga* remocao() {
 void exibir() {
     Carga *atual = inicio;
     if (atual == NULL) {
-        printf("A fila de cargas está vazia.\n");
+        printf("A fila de cargas esta vazia.\n");
         return;
     }
     
     printf("\n--- Cargas na fila ---\n");
     while (atual) {
-        printf("ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descrição: %s\n",
+        printf("ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n",
                atual->id, atual->tipo, atual->peso, atual->prioridade, atual->descricao);
         atual = atual->prox;
     }
