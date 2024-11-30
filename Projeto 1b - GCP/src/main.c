@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include "cargas.h"
-// #include "persistencia.h"
+#include "persistencia.h"
 
 void menu();
 
 int main() {
     iniciarFila();
-    /*if (!carregarCargas("../data/cargas.csv")) {
-        printf("Erro ao carregar arquivo CSV.\n");
-    } */
+    carregarCargas("./data/cargas.csv");
 
     int opcao;
     do {
