@@ -4,19 +4,19 @@
 #include <string.h>
 #include "cargas.h"
 
-static Carga inicio = NULL;
-static Cargafim = NULL;
+static Carga *inicio = NULL;
+static Carga *fim = NULL;
 
-void inicializarFila() {
+void iniciarFila() {
     inicio = NULL;
     fim = NULL;
 }
 
 bool insercao(Carga carga) {
-    Carga nova = (Carga)malloc(sizeof(Carga));
+    Carga *nova = (Carga *)malloc(sizeof(Carga));
     if (!nova) return false;
 
-    nova = carga;
+    *nova = carga;
     nova->prox = NULL;
 
     if (!inicio) {
@@ -29,11 +29,11 @@ bool insercao(Carga carga) {
     return true;
 }
 
-Carga remocao() {
+Carga* removeCarga() {
     if (!inicio) return NULL;
 
-    Carga atual = inicio;
-    Cargaantes = NULL;
+    Carga *atual = inicio;
+    Carga *antes = NULL;
 
     while (atual) {
         if (strcmp(atual->prioridade, "Alta") == 0) break;
@@ -55,13 +55,14 @@ Carga remocao() {
     return atual;
 }
 
+
 // funcao buscar
 // funcao exibir
 
 void liberarFila() {
-    Carga atual = inicio;
+    Carga *atual = inicio;
     while (atual) {
-        Cargatemp = atual;
+        Carga *temp = atual;
         atual = atual->prox;
         free(temp);
     }
