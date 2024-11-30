@@ -9,7 +9,6 @@ void menu();
 int main() {
     iniciarFila();
     carregarCargas("./data/cargas.csv");
-
     int opcao;
     do {
         menu();
@@ -22,14 +21,10 @@ int main() {
             break; }
         case 2: {
             Carga nova;
-            printf("ID: ");
-            scanf("%s", nova.id);
-            printf("Tipo: ");
-            scanf("%s", nova.tipo);
-            printf("Peso: ");
-            scanf("%f", &nova.peso);
-            printf("Prioridade (Baixa/Normal/Alta): ");
-            scanf("%s", nova.prioridade);
+            printf("ID: "); scanf("%s", nova.id);
+            printf("Tipo: "); scanf("%s", nova.tipo);
+            printf("Peso: "); scanf("%f", &nova.peso);
+            printf("Prioridade (Baixa/Normal/Alta): "); scanf("%s", nova.prioridade);
             getchar();
             printf("Descricao: ");
             fgets(nova.descricao, sizeof(nova.descricao), stdin);
@@ -44,8 +39,7 @@ int main() {
         case 3: {
             Carga *removida = remocao();
             if (removida) {
-                printf("Carga processada: ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n",
-                       removida->id, removida->tipo, removida->peso, removida->prioridade, removida->descricao);
+                printf("Carga processada: ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n", removida->id, removida->tipo, removida->peso, removida->prioridade, removida->descricao);
                 free(removida);
             } else {
                 printf("Nenhuma carga a processar.\n");
@@ -53,23 +47,19 @@ int main() {
             break;} 
         case 4: {
             char id[10];
-            printf("ID da carga: ");
-            scanf("%s", id);
+            printf("ID da carga: "); scanf("%s", id);
             Carga *carga = buscar(id);
             if (carga) {
-                printf("ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n",
-                       carga->id, carga->tipo, carga->peso, carga->prioridade, carga->descricao);
+                printf("ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n", carga->id, carga->tipo, carga->peso, carga->prioridade, carga->descricao);
             } else {
                 printf("Carga nao encontrada.\n");
             }
             break; }
         case 5: {
             printf("Encerrando o programa...");
-            break;
-        }
+            break;}
         default:
             printf("Opcao nao encontrada!");
-            break;
         }
             
     } while (opcao != 5);
