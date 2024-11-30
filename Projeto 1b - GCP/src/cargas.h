@@ -12,12 +12,12 @@ char desc[100];
 struct Carga *prox;
 } Carga;
 
-void iniciarFila();
-bool insercao(Carga carga);
-Carga* remocao();
-Carga* buscaCarga(const char *id);
-void mostrarCargas();
-bool lerCSV(const char *arquivo);
+void iniciarFila(); // feito 
+bool insercao(Carga carga); // feito
+Carga* remocao(); // feito
+Carga* buscar(const char *id);
+void exibir();
+bool carregarCargas(const char *arquivo); // exibir
 void liberarFila();
 
 #endif

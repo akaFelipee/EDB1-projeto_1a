@@ -2,70 +2,88 @@
 #include "cargas.h"
 #include "persistencia.h"
 
-int main(int argc, char const *argv[])
-{
-    Carga carga;
-    Produto p;
+void menu();
 
-    carregarCargas(&carga, "./data/cargas.csv");
+int main() {
+    inicializarFila();
+    /*if (!carregarCargas("../data/cargas.csv")) {
+        printf("Erro ao carregar arquivo CSV.\n");
+    } */
 
     int opcao;
     do {
-        printf("\n1. Inserir produto\n");
-        printf("2. Remover produto\n");
-        printf("3. Buscar produto\n");
-        printf("4. Listar produtos\n");
-        printf("5. Salvar alteracoes\n");
-        printf("6. Sair\n");
-        printf("Escolha uma opcao: ");
+        menu();
         scanf("%d", &opcao);
-
+        getchar();
+        
         switch (opcao) {
-            case 1: {
-                Produto p;
-                printf("Digite o codigo da carga: ");
-                scanf("%d", &p.codigo);
-                printf("Digite o nome da carga: ");
-                scanf("%49s", p.nome);  // Garante que não ultrapasse o limite de 49 caracteres + null-terminator
-                printf("Digite o peso da carga: ");
-                scanf("%d", &p.peso);
-                printf("Digite a prioridade da carga: ");
-                scanf("%f", &p.prioridade);
-                inserirProduto(&carga, p);
-                break;
-            }
-            case 2: {
-                int codigo;
-                removerProduto(&carga, codigo);
-                break;
-            }
-            case 3: {
-                int codigo;
-                printf("Digite o codigo do produto a ser buscado: ");
-                scanf("%d", &codigo);
-                int indice = buscarProduto(&carga, codigo);
-                if (indice == -1) {
-                    printf("Produto nao encontrado.\n");
-                } else {
-                    Produto p = carga.produtos[indice];
-                    printf("Codigo: %d | Nome: %s | Quantidade: %d | Preco: %.2f\n", p.codigo, p.nome, p.quantidade, p.preco);
-                }
-                break;
-            }
-            case 4:
-                listarProdutos(&carga);
-                break;
-            case 5:
-                salvarCargas(&carga, "./data/estoque.csv");
-                break;
-            case 6:
-                printf("Saindo...\n");
-                break;
-            default:
-                printf("Opcao invalida. Tente novamente.\n");
-        }
-    } while (opcao != 6);
+        case 1: {
+            exibir();
+            break; }
+        case 2: {
+            Carga nova;
+            printf("ID: ");
+            scanf("%s", nova.id);
+            printf("Tipo: ");
+            scanf("%s", nova.tipo);
+            printf("Peso: ");
+            scanf("%f", &nova.peso);
+            printf("Prioridade (Baixa/Normal/Alta): ");
+            scanf("%s", nova.prioridade);
+            getchar();
+            printf("Descricao: ");
+            fgets(nova.descricao, sizeof(nova.descricao), stdin);
+            nova.descricao[strcspn(nova.descricao, "\n")] = '\0';
 
-    liberarFila(&carga);
+            if (insercao(nova)) {
+                printf("Carga adicionada com sucesso!\n");
+            } else {
+                printf("Erro ao adicionar carga.\n");
+            }
+            break; }
+        case 3: {
+            Carga *removida = remocao();
+            if (removida) {
+                printf("Carga processada: ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n",
+                       removida->id, removida->tipo, removida->peso, removida->prioridade, removida->descricao);
+                free(removida);
+            } else {
+                printf("Nenhuma carga a processar.\n");
+            }
+            break;} 
+        case 4: {
+            char id[10];
+            printf("ID da carga: ");
+            scanf("%s", id);
+            Carga *carga = buscar(id);
+            if (carga) {
+                printf("ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n",
+                       carga->id, carga->tipo, carga->peso, carga->prioridade, carga->descricao);
+            } else {
+                printf("Carga nao encontrada.\n");
+            }
+            break; }
+        case 5: {
+            printf("Encerrando o programa...");
+            break;
+        }
+        default:
+            printf("Opção não encontrada!");
+            break;
+        }
+            
+    } while (opcao != 5);
+
+    liberarFila();
     return 0;
+}
+
+void menu () {
+    printf("\n--- Gestao de Cargas Portuarias ---\n");
+    printf("1. Exibir cargas\n");
+    printf("2. Adicionar nova carga\n");
+    printf("3. Processar proxima carga\n");
+    printf("4. Buscar carga por ID\n");
+    printf("5. Sair\n");
+    printf("Escolha uma opcao: ");
 }
