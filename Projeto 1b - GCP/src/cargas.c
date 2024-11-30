@@ -4,8 +4,8 @@
 #include <string.h>
 #include "cargas.h"
 
-static Carga *inicio = NULL;
-static Carga *fim = NULL;
+static Carga inicio = NULL;
+static Cargafim = NULL;
 
 void inicializarFila() {
     inicio = NULL;
@@ -13,31 +13,56 @@ void inicializarFila() {
 }
 
 bool insercao(Carga carga) {
-    Carga *nova = (Carga *)malloc(sizeof(Carga));
+    Carga nova = (Carga)malloc(sizeof(Carga));
     if (!nova) return false;
 
-    *nova = carga;
-    nova->proximo = NULL;
+    nova = carga;
+    nova->prox = NULL;
 
     if (!inicio) {
         inicio = nova;
         fim = nova;
     } else {
-        fim->proximo = nova;
+        fim->prox = nova;
         fim = nova;
     }
     return true;
 }
 
-// funcao remocao EU VOU ME MATAR
+Carga remocao() {
+    if (!inicio) return NULL;
+
+    Carga atual = inicio;
+    Cargaantes = NULL;
+
+    while (atual) {
+        if (strcmp(atual->prioridade, "Alta") == 0) break;
+        antes = atual;
+        atual = atual->prox;
+    }
+
+    if (!atual) {
+        atual = inicio;
+        inicio = inicio->prox;
+    } else if (atual == inicio) {
+        inicio = atual->prox;
+    } else {
+        antes->prox = atual->prox;
+    }
+
+    if (atual == fim) fim = antes;
+
+    return atual;
+}
+
 // funcao buscar
 // funcao exibir
 
 void liberarFila() {
-    Carga *atual = inicio;
+    Carga atual = inicio;
     while (atual) {
-        Carga *temp = atual;
-        atual = atual->proximo;
+        Cargatemp = atual;
+        atual = atual->prox;
         free(temp);
     }
     inicio = NULL;

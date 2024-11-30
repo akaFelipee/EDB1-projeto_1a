@@ -2,20 +2,23 @@
 
 #ifndef CARGAS_H
 #define CARGAS_H
+#include <stdbool.h> // para var. booleanas
 
-typedef struct {
-    int codigo;
-    char nome[50];
-    int peso;
-    float prioridade;
-} Produto;
+typedef struct Carga {
+    char id[4];
+    char tipo[50];
+    float peso;
+    char prioridade[10];
+    char descricao[100];
+    struct Carga prox;
+} Carga;
 
-typedef struct {
-    Produto *produtos;
-    int tamanho;
-    int capacidade;
-} Estoque;
-
-
+void inicializarFila(); // FEITO
+bool insercao(Carga carga); // FEITO
+Carga remocao(); // FEITO
+Carga* busca(const char id); 
+void exibe();
+bool lerCSV(const chararquivo);
+void liberarFila(); // FEITO
 
 #endif
