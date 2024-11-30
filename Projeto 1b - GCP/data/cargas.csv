@@ -1,3 +1,4 @@
-001,Container,15.3,Normal
-002,Granel sólido,30.0,Alta
-003,Granel líquido,50.0,Normal
+C006,Granel líquido,4587.31,Normal,medicamentos
+C002,Container,2568.19,Alta,fertilizantes
+C020,Granel sólido,4097.81,Normal,produtos químicos
+C003,Container,2176.93,Baixa,materiais de construção
