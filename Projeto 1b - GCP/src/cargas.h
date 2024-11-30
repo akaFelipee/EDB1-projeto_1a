@@ -8,7 +8,7 @@ char id[10];
 char tipo[50];
 float peso;
 char prioridade[10];
-char desc[100];
+char descricao[100];
 struct Carga *prox;
 } Carga;
 
@@ -17,7 +17,7 @@ bool insercao(Carga carga); // feito
 Carga* remocao(); // feito
 Carga* buscar(const char *id);
 void exibir();
-bool carregarCargas(const char *arquivo); // exibir
+bool carregarCargas(const char *arquivo);
 void liberarFila();
 
 #endif

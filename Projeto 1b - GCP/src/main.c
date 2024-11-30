@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "cargas.h"
-#include "persistencia.h"
+// #include "persistencia.h"
 
 void menu();
 
