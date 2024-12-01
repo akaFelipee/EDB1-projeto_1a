@@ -18,7 +18,8 @@ int main() {
         switch (opcao) {
         case 1: {
             exibir();
-            break; }
+            break;
+        }
         case 2: {
             Carga nova;
             printf("ID: "); scanf("%s", nova.id);
@@ -35,34 +36,43 @@ int main() {
             } else {
                 printf("Erro ao adicionar carga.\n");
             }
-            break; }
+            break;
+        }
         case 3: {
             Carga *removida = remocao();
             if (removida) {
-                printf("Carga processada: ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n", removida->id, removida->tipo, removida->peso, removida->prioridade, removida->descricao);
+                printf("Carga processada: ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n",
+                    removida->id, removida->tipo, removida->peso, removida->prioridade, removida->descricao);
                 free(removida);
             } else {
                 printf("Nenhuma carga a processar.\n");
             }
-            break;} 
+            break;
+        } 
         case 4: {
             char id[10];
             printf("ID da carga: "); scanf("%s", id);
             Carga *carga = buscar(id);
             if (carga) {
-                printf("ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n", carga->id, carga->tipo, carga->peso, carga->prioridade, carga->descricao);
+                printf("ID: %s | Tipo: %s | Peso: %.2f | Prioridade: %s | Descricao: %s\n",
+                    carga->id, carga->tipo, carga->peso, carga->prioridade, carga->descricao);
             } else {
                 printf("Carga nao encontrada.\n");
             }
-            break; }
+            break;
+        }
         case 5: {
-            printf("Encerrando o programa...");
+            salvarAlteracoes("./data/cargas_alt.csv");
+            break;
+        }
+        case 6: {
+            printf("Programa encerrado");
             break;}
         default:
             printf("Opcao nao encontrada!");
         }
             
-    } while (opcao != 5);
+    } while (opcao != 6);
 
     liberarFila();
     return 0;
@@ -74,6 +84,7 @@ void menu () {
     printf("2. Adicionar nova carga\n");
     printf("3. Processar proxima carga\n");
     printf("4. Buscar carga por ID\n");
-    printf("5. Sair\n");
+    printf("5. Salvar alteracoes\n");
+    printf("6. Sair\n");
     printf("Escolha uma opcao: ");
 }

@@ -12,12 +12,12 @@ char descricao[100];
 struct Carga *prox;
 } Carga;
 
+Carga* getInicio();
 void iniciarFila();
 bool insercao(Carga carga);
 Carga* remocao();
 Carga* buscar(const char *id);
 void exibir();
-// bool carregarCargas(const char *arquivo);
 void liberarFila();
 
 #endif

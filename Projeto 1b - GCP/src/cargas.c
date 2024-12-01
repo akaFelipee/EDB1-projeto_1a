@@ -2,9 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cargas.h"
+#include "persistencia.h"
 
-static Carga *inicio = NULL;
+// controle da fila
+static Carga *inicio = NULL; // p/ apontar para o primeiro elem. da fila de cargas
 static Carga *fim = NULL;
+
+Carga* getInicio() {
+    return inicio;
+}
 
 void iniciarFila() {
     inicio = NULL;
