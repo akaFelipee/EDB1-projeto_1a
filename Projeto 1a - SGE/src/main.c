@@ -23,6 +23,7 @@ int main() {
                 printf("Digite a quantidade: "); scanf("%d", &p.quantidade);
                 printf("Digite o preco: "); scanf("%f", &p.preco);
                 inserirProduto(&estoque, p);
+                printf("Produto inserido com sucesso!\n");
                 break; }
             case 2: {
                 int codigo;
@@ -71,6 +72,7 @@ int main() {
 }
 
 void menu () {
+    printf("\n--- Sistema de Gerenciamento de Estoque---\n");
     printf("\n1. Inserir produto\n");
     printf("2. Remover produto\n");
     printf("3. Buscar produto\n");

@@ -52,6 +52,7 @@ void removerProduto(Estoque *estoque, int codigo) {
         estoque->produtos[i] = estoque->produtos[i + 1];
     }
     estoque->tamanho--;
+    printf("Produto removido com sucesso!\n");
 }
 
 void atualizarProduto(Estoque *estoque, int codigo, int novaQuantidade, float novoPreco) {
@@ -62,6 +63,7 @@ void atualizarProduto(Estoque *estoque, int codigo, int novaQuantidade, float no
     }
     estoque->produtos[indice].quantidade = novaQuantidade;
     estoque->produtos[indice].preco = novoPreco;
+    printf("Atualização realizada!\n");
 }
 
 void listarProdutos(Estoque *estoque) {
@@ -74,6 +76,7 @@ void listarProdutos(Estoque *estoque) {
         printf("Codigo: %d | Nome: %s | Quantidade: %d | Preco: %.2f\n", p.codigo, p.nome, p.quantidade, p.preco);
     }
 }
+
 void liberarEstoque(Estoque *estoque) {
     free(estoque->produtos);
     estoque->produtos = NULL;
